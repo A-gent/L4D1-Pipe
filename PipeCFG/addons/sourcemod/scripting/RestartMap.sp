@@ -35,7 +35,6 @@ public OnPluginStart()
 {
 
 	RegAdminCmd("sm_restartmap", CommandRestartMap, ADMFLAG_CHANGEMAP, "sm_restartmap - changelevels to the current map");
-	RegConsoleCmd("spectate", Command_Spectate);
 
 }
 
@@ -83,28 +82,6 @@ RestartMapNow()
 
 
 
-
-
-public Action:Command_Spectate(client, args)
-{
-	if(IsPlayerAlive(client) && GetClientTeam(client) == L4D_TEAM_INFECTED)
-	{
-		ForcePlayerSuicide(client);
-	}
-	if(GetClientTeam(client) != L4D_TEAM_SPECTATE)
-	{
-		ChangePlayerTeam(client, L4D_TEAM_SPECTATE);
-		PrintToChatAll("[SM] %N has become a spectator.", client);
-	}
-	//respectate trick to get around spectator camera being stuck
-	else
-	{
-		ChangePlayerTeam(client, L4D_TEAM_INFECTED);
-		CreateTimer(0.1, Timer_Respectate, client, TIMER_FLAG_NO_MAPCHANGE);
-	}
-
-	return Plugin_Handled;
-}
 
 
 

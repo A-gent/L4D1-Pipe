@@ -74,6 +74,22 @@ ConVar g_hCvarGravity;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////RESTART MAP COMMAND
+///
+#define READY_RESTART_MAP_DELAY 5.0
+#define READY_RESTART_SCAVENGE_TIMER 0.1
+#define READY_DEBUG 0
+
+
+new bool:isMapRestartPending;
+new Handle:fwdOnReadyRoundRestarted = INVALID_HANDLE;
+//
+///
+///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////NEW PLUGIN HERE
 ///
 
@@ -205,6 +221,51 @@ public OnPluginStart() {
 ///
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////RESTART MAP COMMAND
+///
+	RegAdminCmd("sm_restartmap", CommandRestartMap, ADMFLAG_CHANGEMAP, "sm_restartmap - changelevels to the current map");
+//
+///
+///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////CUSTOM
+///
+///
+///
+///// Cheat MODULE ALIASES
+	//////////////////////////////////////////////////////////////////////////////////////////
+	RegConsoleCmd("cheat", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("cheats", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("yescheats", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("cheats1", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("cheat1", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("cheats_on", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("cheatson", Command_CheatsOn, "- Enable Server Cheats");
+	RegConsoleCmd("enablecheats", Command_CheatsOn, "- Enable Server Cheats");
+	//
+	RegConsoleCmd("disablecheats", Command_CheatsOff, "- Disable Server Cheats");
+	RegConsoleCmd("cheats_off", Command_CheatsOff, "- Disable Server Cheats");
+	RegConsoleCmd("cheatsoff", Command_CheatsOff, "- Disable Server Cheats");
+	RegConsoleCmd("nocheats", Command_CheatsOff, "- Disable Server Cheats");
+	RegConsoleCmd("cheats0", Command_CheatsOff, "- Disable Server Cheats");
+	RegConsoleCmd("cheat0", Command_CheatsOff, "- Disable Server Cheats");
+	
+	
+	RegConsoleCmd("netcode_100", Command_100TICKNetCode, "- Execute Hard-Baked 100 TICK Netcode Settings");
+	
+	
+	
+//
+///
+///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////NEW PLUGIN HERE
@@ -534,8 +595,111 @@ public Action:ClientExec (client, args)
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////RESTART MAP COMMAND
+///
+public Action:CommandRestartMap(client, args)
+{	
+	//if(!isMapRestartPending)
+	//{
+		PrintToChatAll("\x05 [Pipe]: \x04 Map resetting in %.0f seconds.", READY_RESTART_MAP_DELAY);
+		RestartMapDelayed();
+	//}
+	
+	return Plugin_Handled;
+}
+
+RestartMapDelayed()
+{
+	//isMapRestartPending = true;
+	
+	CreateTimer(READY_RESTART_MAP_DELAY, timerRestartMap, _, TIMER_FLAG_NO_MAPCHANGE);
+//	PrintToChatAll("\x05 [Pipe]: \x04 Map will restart in %f seconds.", READY_RESTART_MAP_DELAY);
+}
+
+public Action:timerRestartMap(Handle:timer)
+{
+	RestartMapNow();
+}
+
+RestartMapNow()
+{
+	isMapRestartPending = false;
+	
+	decl String:currentMap[256];
+	
+	GetCurrentMap(currentMap, 256);
+	
+	ServerCommand("changelevel %s", currentMap);
+}
+
+//
+///
+///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////NEW PLUGIN HERE
 ///
+
+//
+///
+///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////CUSTOM
+///
+///
+///
+//// CHEATS
+	//////////////////////////////////////////////////////////////////////////////////////////
+ public Action:Command_CheatsOn(client, args)
+{
+		PrintToChat(client, "\x05 [Pipe]:  \x03 CHEATS \x04 ENABLED");
+		ServerCommand("sv_cheats 1");
+		return Plugin_Handled;
+}
+
+ public Action:Command_CheatsOff(client, args)
+{
+		PrintToChat(client, "\x05 [Pipe]:  \x03 CHEATS \x04 DISABLED");
+		ServerCommand("sv_cheats 0");
+		return Plugin_Handled;
+}
+
+ public Action:Command_TestGlobalPrint(client, args)
+{
+		//PrintToServer("[CFGPIPE]:  THIS IS A GLOBAL STRINGPRINT");
+		PrintToChatAll ("\x05 [Pipe]:  \x03 THIS IS A \x04 GLOBAL STRINGPRINT");  // Though the actual colors will vary depending on the mod, you can add color to any chat message using the characters 0x01 to 0x08.
+		//PrintToChatAll ("\x01 1 .. \x02 2 .. \x03 3 .. \x04 4 .. \x05 5 .. \x06 6 .. \x07 7 .. \x08 8");  // Though the actual colors will vary depending on the mod, you can add color to any chat message using the characters 0x01 to 0x08.
+		return Plugin_Handled;
+}
+///
+///
+///
+//// SET NETCODE VARIABLES FOR 100 TICK
+	//////////////////////////////////////////////////////////////////////////////////////////
+ public Action:Command_100TICKNetCode(client, args)
+{
+		PrintToChat(client, "\x05 [Pipe]:  \x03 EXECUTING \x04 HARDCODED NETCODE {100 TICK} in %.0f seconds...");
+		ServerCommand("sv_cheats 1");
+		ServerCommand("sm_cvar sv_client_max_interp_ratio 10");
+		ServerCommand("sm_cvar sv_client_min_interp_ratio -1");
+		ServerCommand("sm_cvar sv_allow_wait_command 1");
+		ServerCommand("sm_cvar nb_update_frequency .02");
+		ServerCommand("sm_cvar fps_max 128.5677856");
+		ServerCommand("sm_cvar sv_maxrate 100000");
+		ServerCommand("sm_cvar sv_minrate 100000");
+		ServerCommand("sm_cvar sv_maxupdaterate 100");
+		ServerCommand("sm_cvar sv_maxcmdrate 100");
+		PrintToChat(client, "\x05 [Pipe]:  \x03 EXECUTED \x04 HARDCODED NETCODE {100 TICK}");
+
+		return Plugin_Handled;
+}
 
 //
 ///
