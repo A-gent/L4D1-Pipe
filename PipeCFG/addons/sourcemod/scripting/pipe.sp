@@ -259,6 +259,7 @@ public OnPluginStart() {
 	
 	
 	RegConsoleCmd("netcode_100", Command_100TICKNetCode, "- Execute Hard-Baked 100 TICK Netcode Settings");
+	RegConsoleCmd("netcode_66", Command_66TICKNetCode, "- Execute Hard-Baked 66 TICK Netcode Settings");
 	RegConsoleCmd("netcode_60", Command_60TICKNetCode, "- Execute Hard-Baked 60 TICK Netcode Settings");
 	RegConsoleCmd("netcode_30", Command_30TICKNetCode, "- Execute Hard-Baked 30 TICK Netcode Settings");
 	
@@ -683,13 +684,21 @@ RestartMapNow()
 ///
 ///
 ///
-//// SET NETCODE VARIABLES FOR 100 TICK
+//// SET NETCODE VARIABLES FOR TICKRATE
 	//////////////////////////////////////////////////////////////////////////////////////////
  public Action:Command_100TICKNetCode(client, args)
 {
 		//ServerCommand("sv_cheats 1");
 		ServerCommand("exec pipe_net_100.cfg");
 		PrintToChat(client, "\x05 [Pipe]:  \x03 EXECUTING \x04 HARDCODED NETCODE {100 TICK}");
+		return Plugin_Handled;
+}
+
+ public Action:Command_66TICKNetCode(client, args)
+{
+		//ServerCommand("sv_cheats 1");
+		ServerCommand("exec pipe_net_66.cfg");
+		PrintToChat(client, "\x05 [Pipe]:  \x03 EXECUTING \x04 HARDCODED NETCODE {66  TICK}");
 		return Plugin_Handled;
 }
 
