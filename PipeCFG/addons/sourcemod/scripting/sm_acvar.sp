@@ -8,7 +8,7 @@ public Plugin myinfo =
 {
 	name = "PipeCFG - Quiet Pipe",
 	author = "Agent",
-	description = "Alternate sm_cvar - sm_acvar. Allows you to change a cvar value without printing any result to chat. Opcionaly, you can print result to console or server; and/or add a delay.",
+	description = "Alternate sm_cvar. Allows you to change a cvar value without printing any result to chat. Opcionaly, you can print result to console or server; and/or add a delay.",
 	version = PLUGIN_VERSION,
 	url = ""
 };
@@ -19,7 +19,6 @@ public void OnPluginStart()
 {
 	CreateConVar("sm_acvar_version", PLUGIN_VERSION, "Silent cvar version", FCVAR_NOTIFY);
 	sm_acvar_server_always = CreateConVar("sm_acvar_server_always", "1", "Print always result to server console when using sm_acvar and sm_adcvar?", 0);
-	RegAdminCmd("sm_addconvar", ACvar, ADMFLAG_RCON, "Changes a cvar value without printing result to chat.");
 	RegAdminCmd("sm_acvar", ACvar, ADMFLAG_RCON, "Changes a cvar value without printing result to chat.");
 	RegAdminCmd("sm_acvar_console", ACvar, ADMFLAG_RCON, "Changes a cvar value printing result to admin's console.");
 	RegAdminCmd("sm_acvar_server", ACvar, ADMFLAG_RCON, "Changes a cvar value printing result to server console.");

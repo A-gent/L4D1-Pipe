@@ -1,0 +1,14 @@
+https://forums.alliedmods.net/showthread.php?p=1198514
+
+https://forums.alliedmods.net/showpost.php?p=1015916&postcount=8
+
+
+"
+Well, i still awaiting the unscrambler, but for change teams i'm using this simple plugin.I basically pick the part of superversus and the part of l4d_away and put together.
+You have to put this on server.cfg (the number its your choose):
+sm_cvar vs_max_team_switches "5"
+Commands:
+!survivor - change to survivor team
+!infected - change to infected team
+!spectate - go to spec
+"
