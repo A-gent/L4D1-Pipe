@@ -1,0 +1,222 @@
+------------------------------------------------------------------------------------------
+                             R2CompMod Convar List
+------------------------------------------------------------------------------------------
+
+rotoblin_1v1_wipe_pills                                            : The number of pills that will be removed during the final (0: disable 1v1 features)
+rotoblin_2_version                                                 : The version of Rotoblin 2 Competitive Mod (R2compMod)
+rotoblin_autoloader_cfg                                            : The name of the config which will load on server start-up. Leave empty to disable Autoloader (value: "").
+rotoblin_allow_dynamic_hostname                                    : Adds the name of the current config in the l4dready RUP Menu ("l4d_ready_cfg_name" cvar) to the servers hostname and separate it by this symbol
+rotoblin_allow_map_resets                                          : Sets whether to change map to the first map of a random campaign when server is empty
+rotoblin_allow_match_req                                           : Sets whether any player can request to change the current match mode (!match command)
+rotoblin_allow_match_resets                                        : Sets whether to reset to the default config when the server is empty ("rotoblin_autoloader_cfg" convar)
+rotoblin_allow_natural_hordes                                      : Sets whether natural hordes will spawn. (-1: director settings, 0: disable, > 0: spawn interval to cvar value)
+rotoblin_allow_spec_hud                                            : Enables Rotoblin spectator HUD
+rotoblin_allow_tank_hud                                            : Enables Rotoblin Tank HUD
+rotoblin_allow_unscramble                                          : Enables unscramble feature (Puts all players on the right team after map/campaign/match change)
+rotoblin_boss_unprohibit                                           : Enable bosses spawning on all maps, even through they normally aren't allowed.
+rotoblin_choosemenu_unlocker                                       : Allows spectator/infected players to join the survivor team even if the survivor bot is dead (through M button)
+rotoblin_compact_tankhud                                           : The style of the Tank HUD. (0: old style, 1: new style)
+rotoblin_cvar_silent_style                                         : If set, clients will be not notified that a tracked convar has been changed
+rotoblin_debug_channel                                             : The Sum of the debug channel. Flags: -1 - Log all channels, 0 - General channel only, 0+ - Log channel of flag
+rotoblin_debug_output                                              : The Sum of the debug output. Flags: 0 - No logging, 1 - Print to server, 2 - Print to chat, 4 - Log to SM logs
+rotoblin_despawn_infected                                          : If set, common infected will despawn if they are too far behind the survivors
+rotoblin_disable_tank_hordes                                       : If set, natural hordes will not spawn while tank is in play. (0: enable, 1: disable).
+rotoblin_disable_final_hordes                                      : If set, natural hordes will not spawn while final starts (radio button pressed). (0: enable, 1: disable).
+rotoblin_enable                                                    : Enables Rotoblin 2 Competitive Mod (R2compMod)
+rotoblin_expolit_fixes_flag                                        : Enables what kind of exploit should be fixed/blocked. Flag (add together): 0=Disable, 2=No ladder block, 4=Survivor duck block, 8=Ghost duck block, 16=E spawn expolit block, 32=Ammo pickup fix, 64=Incapacitated survivor ff block, 126=all
+rotoblin_finalspawn_range                                          : Reduces the SI spawning range on finales to normal spawning range
+rotoblin_ghost_warp                                                : Sets whether infected ghosts can warp to survivors (mouse 2)
+rotoblin_item_spawns                                               : Forces items to spawn consistently for both teams. Flag (add together): 0=disable, 2=molotov, 4=pipe-bomb, 8=pills, 14=all
+rotoblin_item_translations                                         : Keep items to translations in co-op gamemode
+rotoblin_limit_assaultrifle                                        : Maximum number of Assault Rifles that can be equipped by the Survivor team. (-1: unlimited, 0: not allowed, > 0: limits in according with cvar value).
+rotoblin_limit_autoshotgun                                         : Maximum number of Auto Shotguns that can be equipped by the Survivor team. (-1: unlimited, 0: not allowed, > 0: limits in according with cvar value).
+rotoblin_limit_huntingrifle                                        : Maximum number of Hunting Rifles that can be equipped by the Survivor team. (-1: unlimited, 0: not allowed, > 0: limits in according with cvar value).
+rotoblin_limit_pumpshotgun                                         : Maximum number of Pump Shotguns that can be equipped by the Survivor team. (-1: unlimited, 0: not allowed, > 0: limits in according with cvar value).
+rotoblin_limit_submachinegun                                       : Maximum number of SMGs that can be equipped by the Survivor team. (-1: unlimited, 0: not allowed, > 0: limits in according with cvar value).
+rotoblin_max_witches                                               : Maximum number of Witches are allowed to spawn. (0: director settings, > 0: maximum limit to cvar value)
+rotoblin_melee_penalty                                             : Sets the Shove penalty for each non-fatigued melee swipe
+rotoblin_melee_flags                                               : Blocks melee effect on infected. Flag (add together): 0=Disable, 2=Smoker, 4=Boomer, 8=Hunter, 16=CI, 30=all
+rotoblin_melee_deadstop                                            : Blocks deadstop feature
+rotoblin_molotov_before_tank                                       : Sets whether (If possible) a molotov will spawn on the map before the Tank spawns.
+rotoblin_molotov_limit                                             : Limits the number of molotovs on each map outside of the safe room. (-1: remove all, 0: director settings, > 0: limit to cvar value)
+rotoblin_no_escape_tank                                            : Removes tanks which spawn as the rescue vehicle arrives on finales.
+rotoblin_unscramble_novotes                                        : Prevents calling votes until unscramble completes.
+rotoblin_pause_allowed                                             : Sets whether the game can be paused by players
+rotoblin_pause_duration                                            : Sets the duration before the game can be unpaused by a either team
+rotoblin_pills_autogiver                                           : Sets whether the survivors will automatically receive pills after they leave the saferoom
+rotoblin_pills_limit                                               : Limits the number of pills on each map outside of the safe room. (-1: remove all, 0: director settings, > 0: limit to cvar value)
+rotoblin_pipebomb_limit                                            : Limits the number of pipe-bombs on each map outside of the safe room. (-1: remove all, 0: director settings, > 0: limit to cvar value)
+rotoblin_remove_cannisters                                         : Removes all cannisters (gascan, propane and oxygen)
+rotoblin_remove_explosive_barrels                                  : Removes all explosive barrels.
+rotoblin_remove_huntingrifle                                       : Removes all hunting rifles from start saferooms. (-1: on each map, 0: director settings, 1: only on final)
+rotoblin_remove_pistols                                            : Removes all pistols on each map, prevents the use of double pistols. (0: disable, 1: enable)
+rotoblin_remove_start_commons                                      : Removes all common infected near the saferoom and respawns them when one of survivors leaves the saferoom.
+rotoblin_replace_finalekits                                        : How medkits will be replaced on finales. (-1: remove medkits, 0: director settings, 1: replace with pain pills)
+rotoblin_replace_finaleweapons                                     : How weapons will be replaced on finales. (-1: remove weapons, 0: director settings, 1: replace with their tier 1 analogue, 2: replace only rifles, 3: replace only shotgun)
+rotoblin_replace_outsidekits                                       : How medkits will be replaced out of saferooms. (-1: remove medkits, 0: director settings, 1: replace with pain pills. Extra option 2: remove all healing items except of finals)
+rotoblin_replace_outsideweapons                                    : How weapons will be replaced out of saferooms. (-1: remove weapons, 0: director settings, 1: replace with their tier 1 analogue, 2: replace only rifles, 3: replace only shotguns)
+rotoblin_replace_startkits                                         : How medkits will be replaced in the saferoom. (-1: remove medkits, 0: director settings, 1: replace with pain pills)
+rotoblin_replace_startweapons                                      : How weapons will be replaced in the saferoom. (-1: remove weapons, 0: director settings, 1: replace with their tier 1 analogue, 2: replace only rifles, 3: replace only shotgun)
+rotoblin_replace_endkits                                           : How medkits will be replaced in the end saferoom. (-1: remove medkits, 0: director settings, 1: replace with pain pills)
+rotoblin_replace_endweapons                                        : How weapons will be replaced in the end saferoom. (-1: remove weapons, 0: director settings, 1: replace with their tier 1 analogue, 2: replace only rifles, 3: replace only shotgun)
+rotoblin_reset_natural_hordes                                      : If the survivors were vomited/panic event starts, natural hordes timer will be reseted to begin counting down again.
+rotoblin_spawning_logic                                            : Enables alternative spawning logic for items. More items on a map, but only a limited number of them can be picked up
+rotoblin_tank_boss                                                 : Tank can't be prelight, punch fix
+rotoblin_tank_noprop_dmg                                           : All hittable props won't deal any damage to the Tank
+rotoblin_tank_spawns                                               : Forces Tank to spawn consistently for both teams.
+rotoblin_two_tanks                                                 : Enables support for double tank mods (The Tank Hud)
+rotoblin_unscramble_notify                                         : Prints a notification to chat when unscramble is completed (lets spectators know when they can join a team)
+rotoblin_water_slowdown                                            : If set, survivors will walk slower in water.
+rotoblin_witch_distance                                            : Allows the director to spawn a witch close to another witch.
+rotoblin_witch_spawns                                              : Forces the Witch to spawn consistently for both teams.
+
+------------------------------------------------------------------------------------------
+                             Optional Plugins Convar List
+------------------------------------------------------------------------------------------
+
+[1v1pm.sp]
+sm_1v1_enable                                                      : Enables or disables the 1v1 Pro Mod plugin
+sm_1v1_dmgthreshold                                                : The Amount of damage done (at once) before the SI suicides.
+
+[1v1_skeetstats.sp]
+sm_skeetstat_counttank                                             : Damage to tank counts towards total if enabled.
+sm_skeetstat_countwitch                                            : Damage to witch counts towards total if enabled.
+sm_skeetstat_brevity                                               : The Flags for setting brevity of the round end report (hide 1:SI, 2:CI, 4:Accuracy, 8:Skeets/Deadstops, 32: melee acc, 64: damage count).
+
+[aitankgank.sp]
+tankgank_enable                                                    : Enables or disables the AI Tank Gank plugin
+tankgank_killoncrash                                               : If 0, the tank will not be killed if the player that controls him crashes
+
+[l4dhots.sp]
+l4d_pills_hot                                                      : Pills heal over time (10 hp each 1s)
+l4d_pills_hot_continue                                             : Continue healing after revive
+l4d_pills_hot_value                                                : Amount of health
+
+[l4dready.sp]
+l4d_ready_enabled                                                  : Make players ready up by default before a match begins
+l4d_ready_competition                                              : Disable all plugins but a few competition-allowed ones
+l4d_ready_both_halves                                              : Make players ready up both during the first and second rounds of a map
+l4d_ready_minimum_players                                          : Minimum # of players before we can ready up
+l4d_ready_server_cfg                                               : Config to execute when the map is changed (to exec after server.cfg).
+l4d_ready_search_key_disable                                       : Automatically disable plugin if sv_search_key is blank
+l4d_ready_cfg_name                                                 : CFG Name to display on the RUP Menu
+l4d_ready_pause_allowed                                            : Number of times each team can pause per campaign
+l4d_ready_pause_duration                                           : Minimum duration of pause in seconds before either team can unpause
+l4d_ready_connect_enabled                                          : Show Announcements When Players Join
+l4d_block_spectator_globalchat                                     : Prevent non-caster Spectators from global chatting, it gets redirected to teamchat
+l4d_ready_disable_spawns                                           : Prevent SI from having ghost-mode spawns during readyup.
+l4d_ready_pause_metod                                              : 0=default, 1=RUP turn on while game in pause
+l4d_ready_notify                                                   : Print or not notify about ready
+l4d_ready_panel_text                                               : Adds additional text to the ready up panel
+l4d_ready_respectate                                               : Allows spectators to use spectate command
+
+[l4dunreservelobby.sp]
+l4d_unreserve_full                                                 : Automatically unreserve server after a full lobby joins
+
+[l4d_bash_kills.sp]
+l4d_no_bash_kills                                                  : Prevent special infected from getting bashed to death
+
+[l4d_nobhaps.sp]
+simple_antibhop_enable                                             : Enable or disable the Simple Anti-Bhop plugin
+bhop_except_si_flags                                               : Bitfield for exempting SI in Anti-Bhop functionality. From least significant: 2=Smoker, 4=Boomer, 8=Hunter, 32=Tank, 64=Survivors, 110=Al
+
+[l4d_si_slowdown.sp]
+l4d_si_slowdown                                                    : Enable removal of slow down that weapons to do special infected
+l4d_si_slowdown_tank                                               : Enable removal of slow down that weapons do to tanks
+
+[lerpmonitor.sp]
+sm_allowed_lerp_changes                                            : Allowed number of lerp changes for a half. 0: unlimited
+sm_lerp_change_spec                                                : Action for exceeded lerp count changes. 1: move to spectators, 2: blocks lerp changes (l4d only)"
+sm_readyup_lerp_changes                                            : 0: always allows lerp changes, 1: allow when the match isn't live, 2: allows until survivor leave the saferoom. (Note: 1 and 2 values ignore "sm_allowed_lerp_changes" cvar)
+sm_lerp_illegal_penalty                                            : Action for illegal lerp value. 0: move to spectators, 1: blocks lerp changes (l4d only)
+sm_min_lerp                                                        : Minimum allowed lerp value
+sm_max_lerp                                                        : Maximum allowed lerp value
+
+[pounceuncap.sp]
+pounceuncap_maxdamage                                              : Sets the new maximum hunter pounce damage.
+
+[prodmg.sp]
+prodmg_announce_flags                                              : What stats get printed to chat. Flags: 0=disabled, 1=witch, 2=tank, 3=all
+prodmg_ignore_bots                                                 : If set, bots stats won't get printed to chat
+prodmg_announce_private                                            : If set, stats wont print to public chatt. Flags (add together): 0=disabled, 1=witch, 2=tank, 3=all
+prodmg_failed_crown                                                : If set, witch stats at round end won't print if she isn't killed
+
+[tankburn.sp]
+tankburn                                                           : Sets whether the plugin is enabled or not
+tankburn_duration                                                  : Sets for how long the tank will burn and take damage.
+
+[wallkicking_block.sp]
+stop_wallkicking_enable                                            : If set, stops hunters from wallkicking
+stop_wallkicking_mode                                              : How the plugin prevents wall kicking. 0: block trick, 1: slay player
+
+[weapon_attributes.sp]
+allow_weapon_attributes                                            : If set, allows weapons to be tweaked (add_attribute cvar)
+
+------------------------------------------------------------------------------------------
+                             Plugins Commands
+------------------------------------------------------------------------------------------
+
+[r2compmod.sp]
+- User Commands:
+-- sm_tankhud                                                      : Toggles the Tank HUD visibility
+-- sm_spechud                                                      : Toggles the Spectator HUD visibility
+-- sm_scores                                                       : Prints infected/survivor team campaign scores
+-- rotoblin_clientsettings                                         : List Client settings enforced by rotoblin
+-- fpause
+-- funpause
+- Admin Commands:
+-- sm_forcematch (sm_fmatch)           : ADMFLAG_KICK              : Forces the game to use match mode
+-- sm_resetmatch (sm_rmatch)           : ADMFLAG_KICK              : Disables match mode
+-- sm_mapinfo                          : ADMFLAG_ROOT              : Adds start/end saferoom position to MapInfo
+-- sm_getmapinfo                       : ADMFLAG_ROOT              : Prints start/end saferoom position from MapInfo
+-- sm_keepteams                        : ADMFLAG_ROOT              : Force teams to be the same each round
+-- rotoblin_debug_status               : ADMFLAG_ROOT              : Writes report of channels and what is current listen to
+-- forcepause                          : ADMFLAG_GENERIC
+- Server Commands:
+-- rotoblin_load_plugin                                            : Load a plugin from optional folder
+-- rotoblin_lock_variables                                         : Lock all tracked convar to changes
+-- rotoblin_pause_spechud                                          :
+-- rotoblin_reset_variables                                        : Reset all tracked convars to its default value
+-- rotoblin_resetclientcvars                                       : Remove all tracked client cvars
+-- rotoblin_restartmap                                             : Changelevel to the current map with a 1.5 sec delay
+-- rotoblin_startclientchecking                                    : Start checking and enforcing client cvars tracked by this plugin
+-- rotoblin_track_variable                                         : Add a convar to track
+-- rotoblin_track_variable_ex                                      : Add a convar to track but ignore a global lock
+-- rotoblin_trackclientcvar                                        : Add a Client CVar to be tracked and enforced by rotoblin
+-- rotoblin_unload_plugins                                         : Unloads all plugins from optional folder
+-- rotoblin_unlock_variables                                       : Unlock all tracked convar to changes
+
+[1v1_skeetstats.sp]
+- User Commands:
+-- sm_skeets                                                       : Prints the current skeetstats
+
+[l4dready.sp]
+- User Commands:
+-- sm_ready (sm_r)
+-- sm_unready (sm_u)
+-- sm_reready
+-- sm_pause
+-- sm_unpause
+-- spectate (sm_s)
+- Admin Commands:
+-- sm_restartmap                       : ADMFLAG_CHANGEMAP
+-- sm_forcepause (sm_fpause)           : ADMFLAG_KICK
+-- sm_forcestart (sm_fstart)           : ADMFLAG_KICK
+-- sm_abort                            : ADMFLAG_KICK
+-- sm_cast                             : ADMFLAG_KICK
+-- sm_toready                          : ADMFLAG_KICK
+
+[l4dunreservelobby.sp]
+- Admin Commands:
+-- sm_unreserve                        : ADMFLAG_BAN               : manually force removes the lobby reservation
+
+[lerpmonitor.sp]
+- User Commands:
+-- sm_lerps                                                        : List the Lerps of all players in game
+
+[weapon_attributes.sp]
+- User Commands:
+-- sm_attrlist                                                     : Print all the attributes of weapons to console.
+- Server Commands:
+-- add_attribute
+-- wipe_attributes
